@@ -46,7 +46,8 @@ func Part2(input string) int {
 
 	for i := 0; i < len(lines)-2; i++ {
 		end := clamp(i+3, len(lines), 0)
-		group_sums[i] = sum(numbers[i:end])
+        slice := numbers[i:end]
+		group_sums[i] = sum(&slice)
 	}
 
 	count := 0
@@ -70,10 +71,10 @@ func clamp(v int, max int, min int) int {
 	return v
 }
 
-func sum(arr []int) int {
+func sum(arr *[]int) int {
 	s := 0
 
-	for _, v := range arr {
+	for _, v := range *arr {
 		s += v
 	}
 	return s

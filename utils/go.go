@@ -23,5 +23,5 @@ func RunPart(part_id int, f func(string)int, in_path string)string{
 
     input := strings.TrimSpace(string(file))
     res, elapsed := ElapsedRun(f, input)
-    return fmt.Sprintf("Part %d:\t{%d}\t Elapsed: %dms\n",part_id, res, elapsed.Milliseconds())
+    return fmt.Sprintf("Part %d:\t{%d}\t Elapsed: %s\n",part_id, res, elapsed.String())
 }
