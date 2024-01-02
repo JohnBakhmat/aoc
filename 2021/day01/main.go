@@ -3,40 +3,15 @@ package main
 import (
 	"fmt"
 	"math"
-	"os"
 	"strconv"
 	"strings"
-	"time"
+    utils "johnbakhmat.tech/m/v2/aoc/utils"
 )
 
-func Run(f func(string) int, input string) (int, time.Duration) {
-	start := time.Now()
-	res := f(input)
-	elapsed := time.Since(start)
-	return res, elapsed
-}
-
 func main() {
-	file, err := os.ReadFile("./input.1.txt")
-	if err != nil {
-		panic(err)
-	}
-
-	input := strings.TrimSpace(string(file))
-
-	res, elapsed := Run(Part1, input)
-	fmt.Printf("Part 1:\t{%d}\t Elapsed: %dms\n", res, elapsed.Milliseconds())
-
-	file, err = os.ReadFile("./input.2.txt")
-	if err != nil {
-		panic(err)
-	}
-
-	input = strings.TrimSpace(string(file))
-
-	res, elapsed = Run(Part2, input)
-	fmt.Printf("Part 2:\t{%d}\t Elapsed: %dms\n", res, elapsed.Milliseconds())
-
+    
+    fmt.Println(utils.RunPart(1,Part1, "./input.1.txt"))
+    fmt.Println(utils.RunPart(2,Part2, "./input.2.txt"))
 }
 func Part1(input string) int {
 	lines := strings.Split(input, "\n")
